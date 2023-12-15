@@ -1,0 +1,60 @@
+td,th{
+  border:1px solid black;
+  padding: 1em;
+  /* background-color: rgb(145, 145, 163) ; */
+}
+table{
+  border-collapse: collapse;
+  border-radius: 15px;
+  width:100%;
+}
+
+form{
+  display: flex;
+  flex-direction: row ;
+}
+label,input{
+  display: block;
+}
+label{
+  padding-top: 1em;
+}
+caption,.caption{
+  margin-top: 1em;
+  background-color: rgb(145, 145, 163) ;
+  padding: 1em;
+  color: #fff;
+  font-weight: 900;
+}
+
+
+.click:hover{
+  background-color: rgba(0, 0, 0, 0.185) ;
+}
+
+
+a{display:inline;}
+
+nav>a{
+  text-decoration: none;
+  padding: 1em;
+  color: #fff;
+
+}
+nav {
+  background-color: rgb(145, 145, 163) ;
+  display: flex;
+  /* border:1px solid rgb(145, 145, 163); */
+}
+
+
+a:visited{
+  color: none;
+  text-decoration: none;
+
+}
+a:link{
+  color: none;
+  text-decoration: none;
+
+}
