@@ -20,39 +20,39 @@
     <?php
     include 'pdo.php';
   
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Vérifier si la base de données existe
-    $stmt = $pdo->query("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$database'");
-    $databaseExists = $stmt->fetchColumn();
+    // // Vérifier si la base de données existe
+    // $stmt = $pdo->query("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$database'");
+    // $databaseExists = $stmt->fetchColumn();
 
-    if (!$databaseExists) {
-        // Importer le fichier SQL
-        $sqlFile = './db.sql';
-        $sql = file_get_contents($sqlFile);
+    // if (!$databaseExists) {
+    //     // Importer le fichier SQL
+    //     $sqlFile = './db.sql';
+    //     $sql = file_get_contents($sqlFile);
 
-        // Exécuter les requêtes SQL
-        $pdo->exec($sql);
+    //     // Exécuter les requêtes SQL
+    //     $pdo->exec($sql);
 
-        echo "La base de données a été importée avec succès.\n";
-    }
+    //     echo "La base de données a été importée avec succès.\n";
+    // }
     
-        // $tab=str_getcsv($line[0]);
-        $res = array();
+    //     // $tab=str_getcsv($line[0]);
+    //     $res = array();
     
-            $sql='SELECT categorie.id as catid,num,categorie.name,club.name as club_name,COUNT(`categorie_club_id`) FROM `club` INNER JOIN categorie_club on club.id=categorie_club.club_id INNER JOIN categorie on categorie.id=categorie_club.categorie_id INNER JOIN joueur on joueur.categorie_club_id=categorie_club.id GROUP BY joueur.categorie_club_id;';
-            if($prep=$pdo->prepare($sql)){
-                $prep->execute();
-                while($row=$prep->fetch()){
-                    // var_dump($row);
-            array_push($res, array('Num'=>$row['num'],'Club'=> $row['club_name'],'Licenciés'=> $row['COUNT(`categorie_club_id`)'],'Catégorie'=> $row['name'],'catid'=>$row['catid'])
-        );
-                }
-            }else {
-                $error = $pdo->errno . ' ' . $pdo->error;
-                echo $error; // 1054 Unknown column 'foo' in 'field list'
-            }
-    ?>
+    //         $sql='SELECT categorie.id as catid,num,categorie.name,club.name as club_name,COUNT(`categorie_club_id`) FROM `club` INNER JOIN categorie_club on club.id=categorie_club.club_id INNER JOIN categorie on categorie.id=categorie_club.categorie_id INNER JOIN joueur on joueur.categorie_club_id=categorie_club.id GROUP BY joueur.categorie_club_id;';
+    //         if($prep=$pdo->prepare($sql)){
+    //             $prep->execute();
+    //             while($row=$prep->fetch()){
+    //                 // var_dump($row);
+    //         array_push($res, array('Num'=>$row['num'],'Club'=> $row['club_name'],'Licenciés'=> $row['COUNT(`categorie_club_id`)'],'Catégorie'=> $row['name'],'catid'=>$row['catid'])
+    //     );
+    //             }
+    //         }else {
+    //             $error = $pdo->errno . ' ' . $pdo->error;
+    //             echo $error; // 1054 Unknown column 'foo' in 'field list'
+    //         }
+    // ?>
 
     <table>
         <caption>
