@@ -28,7 +28,7 @@
 
     if (!$databaseExists) {
         // Importer le fichier SQL
-        $sqlFile = './db.sql';
+        $sqlFile = './.sql/db.sql';
         $sql = file_get_contents($sqlFile);
 
         // Exécuter les requêtes SQL
