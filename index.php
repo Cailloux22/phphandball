@@ -80,7 +80,7 @@
         <tbody>
             <?php foreach ($res as $key => $value) {?>
             <tr class="click"
-                onclick="window.location.href='http://localhost:8090/club.php?id=<?php echo  $value['Num']  ?>&categ=<?php echo  $value['catid']  ?>'">
+                onclick="window.location.href='./club.php?id=<?php echo  $value['Num']  ?>&categ=<?php echo  $value['catid']  ?>'">
 
 
                 <?php foreach ($value as $cle => $valeur) {
