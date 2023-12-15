@@ -17,6 +17,8 @@ services:
       - db_web
     extra_hosts:
       - "dockerhost:172.17.0.1"
+    env_file:
+      - .env
 
 
   mysql:

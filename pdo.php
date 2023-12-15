@@ -1,1 +1,3 @@
-<?php $pdo = new PDO ('mysql:host=terraform-20231215104136216800000001.cmaadob3csml.eu-north-1.rds.amazonaws.com;port=3306;dbname=ter_db;','user','password',array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+<?php 
+$dns ='mysql:host='.getenv("DB_HOST").';port=3306;dbname=ter_db;';
+$pdo = new PDO ($dns,getenv("DB_USER"),getenv("DB_PASSWORD"),array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
