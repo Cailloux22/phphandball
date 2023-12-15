@@ -16,6 +16,7 @@ services:
     networks:
       - db_web
     extra_hosts:
+      - "dockerhost:172.17.0.1"
       - "ter_db:terraform-20231214143646949400000001.cmaadob3csml.eu-north-1.rds.amazonaws.com"
 
   mysql:
