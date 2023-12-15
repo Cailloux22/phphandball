@@ -15,6 +15,8 @@ services:
       - ./:/var/www/html
     networks:
       - db_web
+    extra_hosts:
+      - "ter_db:terraform-20231214143646949400000001.cmaadob3csml.eu-north-1.rds.amazonaws.com"
 
   mysql:
     container_name: db
