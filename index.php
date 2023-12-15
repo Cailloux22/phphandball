@@ -19,7 +19,23 @@
 
     <?php
     include 'pdo.php';
+  
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    // Vérifier si la base de données existe
+    $stmt = $pdo->query("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$database'");
+    $databaseExists = $stmt->fetchColumn();
+
+    if (!$databaseExists) {
+        // Importer le fichier SQL
+        $sqlFile = './db.sql';
+        $sql = file_get_contents($sqlFile);
+
+        // Exécuter les requêtes SQL
+        $pdo->exec($sql);
+
+        echo "La base de données a été importée avec succès.\n";
+    }
     
         // $tab=str_getcsv($line[0]);
         $res = array();
